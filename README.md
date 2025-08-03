@@ -40,7 +40,7 @@ sudo ./install-agent.sh --api-url YOUR_SERVER_URL --api-key YOUR_AGENT_KEY
 ```
 # 🖥️ Architecture
 
-```
+```mermaid
 graph LR
     A[Agents] -->|HTTPS| B[API Server]
     B --> C[(TimescaleDB)]
