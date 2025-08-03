@@ -1,0 +1,24 @@
+[Unit]
+Description=Internet Quality Monitoring Agent
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/internet-monitor-agent
+ExecStart=/usr/bin/python3 /opt/internet-monitor-agent/agent.py
+EnvironmentFile=/etc/default/internet-monitor-agent
+Restart=always
+RestartSec=30
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=net-monitor-agent
+
+# Защита сервиса
+ProtectSystem=full
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
