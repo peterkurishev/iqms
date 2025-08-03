@@ -1,7 +1,7 @@
 # 🌐 Internet Quality Monitoring System
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![License](https://img.shields.io/github/license/peterkurishev/iqms)
 ![Docker](https://img.shields.io/badge/docker-ready-blue.svg)
 ![Systemd](https://img.shields.io/badge/systemd-supported-green.svg)
 
