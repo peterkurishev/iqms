@@ -32,3 +32,19 @@ nano .env  # Edit your settings
 # Deploy
 docker-compose up -d
 
+# Agent setup
+
+```bash
+# Linux systemd service
+sudo ./install-agent.sh --api-url YOUR_SERVER_URL --api-key YOUR_AGENT_KEY
+
+# 🖥️ Architecture
+
+```
+graph LR
+    A[Agents] -->|HTTPS| B[API Server]
+    B --> C[(TimescaleDB)]
+    C --> D[Grafana]
+    C --> E[Alert Manager]
+    F[Test Servers] --> A
+```
