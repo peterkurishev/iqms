@@ -1,0 +1,11 @@
+{{- if .Values.middleware.enabled }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Values.middleware.name }}
+  namespace: {{ .Values.middleware.namespace }}
+spec:
+  stripPrefix:
+    prefixes:
+      - "/api"
+{{- end }}
