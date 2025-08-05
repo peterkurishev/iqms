@@ -1,0 +1,56 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: iqms
+      POSTGRES_USER: iqmsuser
+      POSTGRES_PASSWORD: iqmspassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  backend:
+    build:
+      dockerfile: ./build/Dockerfile-backend
+      context: ./backend/
+    command: sh -c "fastapi dev"
+    volumes:
+      - ./backend:/app
+    environment:
+      - DATABASE_URL=postgres://iqmsuser:iqmspassword@db:5432/iqms
+      - PYTHONUNBUFFERED=1
+    expose:
+      - "8000"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  # React Frontend
+  frontend:
+    build: ./frontend
+    command: npm start
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    expose:
+      - "3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

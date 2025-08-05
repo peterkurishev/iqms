@@ -1,0 +1,52 @@
+-*- mode: ripgrep-search; default-directory: "~/prj/iqms/backend/" -*-
+Ripgrep started at Tue Aug  5 21:31:06
+
+rg  --no-heading --line-number --with-filename --color=always --ignore-case -- from\ app. .
+./app/main.py~:2:from app.api.v1.api import api_router
+./app/main.py~:3:from app.core.config import settings
+./app/db/session.py~:4:from app.core.config import settings
+./app/db/models.py~:2:from app.db.session import Base
+./app/api/v1/api.py:10:from app.core.config import settings
+./app/db/init_db.py~:4:from app.db.session import engine, Base
+./app/db/init_db.py~:5:from app.core.logger import logger
+./app/services/agent_service.py~:4:from app.db.session import get_db
+./app/services/agent_service.py~:5:from app.db.models import Agent
+./app/api/v1/endpoints/agents.py~:4:from app.db.session import get_db
+./app/api/v1/endpoints/agents.py~:5:from app.db.models import Agent
+./app/api/v1/endpoints/agents.py~:6:from app.db.schemas import AgentCreate, AgentOut
+./app/api/v1/endpoints/agents.py~:7:from app.services.agent_service import generate_agent_key
+./app/api/v1/endpoints/statistics.py:5:./app/api/v1/endpoints/measurements.py~:3:# from app.db.schemas import MeasurementCreate, MeasurementOut
+./app/api/v1/endpoints/statistics.py:6:./app/api/v1/endpoints/measurements.py~:4:# from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py:7:./app/api/v1/endpoints/measurements.py~:5:# from app.services.agent_service import verify_agent_key
+./app/api/v1/endpoints/statistics.py:8:./app/api/v1/endpoints/measurements.py~:25:from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py:9:./app/api/v1/endpoints/measurements.py~:26:from app.db.schemas import MeasurementCreate, MeasurementOut
+./app/api/v1/endpoints/statistics.py:10:./app/api/v1/endpoints/measurements.py~:27:from app.services.agent_service import verify_agent_key
+./app/api/v1/endpoints/statistics.py:11:./app/api/v1/endpoints/agents.py~:4:from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py:12:./app/api/v1/endpoints/agents.py~:5:from app.db.models import Agent
+./app/api/v1/endpoints/statistics.py:13:./app/api/v1/endpoints/agents.py~:6:from app.db.schemas import AgentCreate, AgentOut
+./app/api/v1/endpoints/statistics.py:14:./app/api/v1/endpoints/agents.py~:7:from app.services.agent_service import generate_agent_key
+./app/api/v1/endpoints/statistics.py:15:./app/api/v1/api.py:10:from app.core.config import settings
+./app/api/v1/endpoints/statistics.py:16:./app/api/v1/endpoints/statistics.py~:3:from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py:17:./app/api/v1/endpoints/statistics.py~:4:from app.services.stats_service import calculate_stats
+./app/api/v1/endpoints/statistics.py:18:./app/api/v1/endpoints/statistics.py~:5:from app.db.schemas import StatsResponse
+./app/api/v1/endpoints/statistics.py:19:./app/api/v1/endpoints/healthcheck.py~:4:from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py:20:./app/main.py~:2:from app.api.v1.api import api_router
+./app/api/v1/endpoints/statistics.py:21:./app/main.py~:3:from app.core.config import settings
+./app/api/v1/endpoints/statistics.py:22:./app/db/session.py~:4:from app.core.config import settings
+./app/api/v1/endpoints/statistics.py:23:./app/db/models.py~:2:from app.db.session import Base
+./app/api/v1/endpoints/statistics.py:24:./app/db/init_db.py~:4:from app.db.session import engine, Base
+./app/api/v1/endpoints/statistics.py:25:./app/db/init_db.py~:5:from app.core.logger import logger
+./app/api/v1/endpoints/statistics.py:26:./app/services/agent_service.py~:4:from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py:27:./app/services/agent_service.py~:5:from app.db.models import Agent
+./app/api/v1/endpoints/healthcheck.py~:4:from app.db.session import get_db
+./app/api/v1/endpoints/measurements.py~:3:# from app.db.schemas import MeasurementCreate, MeasurementOut
+./app/api/v1/endpoints/measurements.py~:4:# from app.db.session import get_db
+./app/api/v1/endpoints/measurements.py~:5:# from app.services.agent_service import verify_agent_key
+./app/api/v1/endpoints/measurements.py~:25:from app.db.session import get_db
+./app/api/v1/endpoints/measurements.py~:26:from app.db.schemas import MeasurementCreate, MeasurementOut
+./app/api/v1/endpoints/measurements.py~:27:from app.services.agent_service import verify_agent_key
+./app/api/v1/endpoints/statistics.py~:3:from app.db.session import get_db
+./app/api/v1/endpoints/statistics.py~:4:from app.services.stats_service import calculate_stats
+./app/api/v1/endpoints/statistics.py~:5:from app.db.schemas import StatsResponse
+
+Ripgrep finished at Tue Aug  5 21:31:06, duration 0.07 s
