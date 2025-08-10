@@ -5,7 +5,7 @@ from typing import Optional
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     SECRET_KEY: str
-    DATABASE_URL: str = "timescaledb+asyncpg://iqmsuser:iqmspassword@db:5432/iqms"
+    DATABASE_URL: str = "postgresql+asyncpg://iqmsuser:iqmspassword@db:5432/iqms"
     AGENT_KEY_EXPIRE_DAYS: int = 365
     
     # Настройки логирования
