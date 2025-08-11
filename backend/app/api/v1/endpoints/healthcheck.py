@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends
+from sqlalchemy import text
 from fastapi.responses import JSONResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from db.session import get_db
@@ -12,7 +13,7 @@ async def health():
 @router.get("/db")
 async def db_health(db: AsyncSession = Depends(get_db)):
     try:
-        await db.execute("SELECT 1")
+        await db.execute(text("SELECT 1"))
         return {"database": "healthy"}
     except Exception as e:
         return JSONResponse(
