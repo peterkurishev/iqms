@@ -1,0 +1,42 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          internet-monitor-agent
+# Required-Start:    $network $remote_fs $syslog
+# Required-Stop:     $network $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+DAEMON="/usr/bin/python3 /opt/internet-monitor-agent/agent.py"
+PIDFILE="/var/run/internet-monitor-agent.pid"
+LOGFILE="/var/log/internet-monitor-agent.log"
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting Internet Monitor Agent"
+    start-stop-daemon --start --background --pidfile $PIDFILE \
+        --make-pidfile --exec $DAEMON >> $LOGFILE 2>&1
+    log_end_msg $?
+    ;;
+  stop)
+    log_daemon_msg "Stopping Internet Monitor Agent"
+    start-stop-daemon --stop --pidfile $PIDFILE
+    log_end_msg $?
+    rm -f $PIDFILE
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  status)
+    status_of_proc -p $PIDFILE "$DAEMON" "Internet Monitor Agent"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/internet-monitor-agent {start|stop|restart|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
